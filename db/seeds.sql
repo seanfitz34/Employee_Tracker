@@ -9,7 +9,7 @@ INSERT INTO role (title, salary, department_id)
 VALUES
 ('Web Developer', 100000, 1),
 ('Software Engineer', 180000, 1),
-('Accountant', 15000, 2), 
+('Accountant', 150000, 2), 
 ('Finanical Supervisor', 150000, 2),
 ('Marketing Supervisor', 170000, 3), 
 ('Sales V.P.', 190000, 3),
