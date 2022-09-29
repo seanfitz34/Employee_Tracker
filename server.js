@@ -606,6 +606,7 @@ viewBudget = () => {
   connect.query(sql, (err, rows) => {
     if (err) throw err;
     console.table(rows);
+    promptUser();
   });
 };
 
