@@ -94,7 +94,6 @@ const promptUser = () => {
       }
 
       if (choices === "No Action") {
-        // connect.end();
       }
     });
 };
@@ -414,7 +413,7 @@ updateManager = () => {
   // get employees from employee table
   const employeeSql = `SELECT * FROM employee`;
 
-  connect.promise().query(employeeSql, (err, data) => {
+  connect.query(employeeSql, (err, data) => {
     if (err) throw err;
 
     const employees = data.map(({ id, first_name, last_name }) => ({
@@ -438,7 +437,7 @@ updateManager = () => {
 
         const managerSql = `SELECT * FROM employee`;
 
-        connection.query(managerSql, (err, data) => {
+        connect.query(managerSql, (err, data) => {
           if (err) throw err;
 
           const managers = data.map(({ id, first_name, last_name }) => ({
@@ -609,4 +608,5 @@ viewBudget = () => {
     console.table(rows);
   });
 };
+
 promptUser();
