@@ -200,7 +200,7 @@ addRole = () => {
         name: "salary",
         message: "What is the salary of this role?",
         validate: (addSalary) => {
-          if (isNAN(addSalary)) {
+          if (addSalary) {
             return true;
           } else {
             console.log("Enter a salary please");
@@ -465,7 +465,7 @@ updateManager = () => {
 
               const sql = `UPDATE employee SET manager_id = ? WHERE id = ?`;
 
-              connection.query(sql, params, (err, result) => {
+              connect.query(sql, params, (err, result) => {
                 if (err) throw err;
                 console.log("Employee has been updated!");
 
@@ -487,7 +487,7 @@ employeeDepartment = () => {
                  LEFT JOIN role ON employee.role_id = role.id 
                  LEFT JOIN department ON role.department_id = department.id`;
 
-  connection.query(sql, (err, rows) => {
+  connect.query(sql, (err, rows) => {
     if (err) throw err;
     console.table(rows);
     promptUser();
@@ -498,7 +498,7 @@ employeeDepartment = () => {
 deleteDepartment = () => {
   const deptSql = `SELECT * FROM department`;
 
-  connection.query(deptSql, (err, data) => {
+  connect.query(deptSql, (err, data) => {
     if (err) throw err;
 
     const dept = data.map(({ name, id }) => ({ name: name, value: id }));
